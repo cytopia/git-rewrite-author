@@ -60,6 +60,24 @@ $ git-rewrite-author -l
 Cool Name <better@email.com>
 ```
 
+## Installation
+
+You can download `git-rewrite-author` via git or composer:
+```shell
+# git
+git clone -https://github.com/cytopia/git-rewrite-author.git
+
+# composer
+composer require cytopia/git-rewrite-author
+```
+
+Afterwards just execute the `install.sh`, it will simply symlink the file to your home binary directory. So whenever you update the git repository afterwards, the symlink will always point to that version.
+```shell
+$ ./install.sh
+Symlink git-rewrite-author to ~/bin? (Y/n)y
+```
+
+
 ##  Contribution
 Contributors are welcome.
 
