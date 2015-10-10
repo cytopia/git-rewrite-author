@@ -9,7 +9,7 @@ INFO_AUTHOR="cytopia <cytopia@everythingcli.org>"
 INFO_GPGKEY=""
 INFO_DATE="2015-10-10"
 INFO_LICENSE="MIT"
-INFO_VERSION="0.1-beta"
+INFO_VERSION="0.2"
 
 #
 # Display program version and credits
