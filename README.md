@@ -18,16 +18,16 @@ Date:   Sat Oct 10 18:30:01 2015 +0200
 ...and now you see that your git author history is not very tidy anymore. Can this be changed? Of course :-)
 
 
-## Features
+## 1. Features
 
 * List all current git authors and committers (name and email)
 * Search author/committer by email and replace with different name and email
 * Show how all commands work (`--dry` option)
 
 
-## Usage
+## 2. Usage
 
-### All options
+### 2.1 All options
 
 ```shell
 Usage: git-rewrite-author -l [--dry]
@@ -42,14 +42,14 @@ Usage: git-rewrite-author -l [--dry]
  -h       Show this help screen.
 ```
 
-### List all authors
+### 2.2 List all authors
 
 ```shell
 $ git-rewrite-author -l
 cytopia <cytopia@everythingcli.org>
 ```
 
-### Replace author
+### 2.3 Replace author
 
 ```shell
 # Rewrite hisstory
@@ -60,7 +60,7 @@ $ git-rewrite-author -l
 Cool Name <better@email.com>
 ```
 
-## Installation
+## 3. Installation
 
 You can download `git-rewrite-author` via git or composer:
 ```shell
@@ -78,11 +78,9 @@ Symlink git-rewrite-author to ~/bin? (Y/n)y
 ```
 
 
-##  Contribution
+##  4. Contribution
 Contributors are welcome.
 
 
-##  License
+##  5. License
 [![license](https://poser.pugx.org/cytopia/git-rewrite-author/license)](http://opensource.org/licenses/mit)
-
-
