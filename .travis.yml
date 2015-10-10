@@ -11,4 +11,4 @@ addons:
 
 
 script:
-  - shellcheck --shell=sh git-rewrite-author
+  - shellcheck --shell=sh bin/git-rewrite-author
