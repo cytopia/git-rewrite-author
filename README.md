@@ -1,6 +1,6 @@
 # git-rewrite-author
 
-[![Build Status](https://travis-ci.org/cytopia/git-rewrite-author.svg?branch=master)](https://travis-ci.org/cytopia/rewrite-author)
+[![Build Status](https://travis-ci.org/cytopia/git-rewrite-author.svg?branch=master)](https://travis-ci.org/cytopia/git-rewrite-author)
 [![Latest Stable Version](https://poser.pugx.org/cytopia/git-rewrite-author/v/stable)](https://packagist.org/packages/cytopia/git-rewrite-author) [![Total Downloads](https://poser.pugx.org/cytopia/git-rewrite-author/downloads)](https://packagist.org/packages/cytopia/git-rewrite-author) [![Latest Unstable Version](https://poser.pugx.org/cytopia/git-rewrite-author/v/unstable)](https://packagist.org/packages/cytopia/git-rewrite-author) [![License](https://poser.pugx.org/cytopia/git-rewrite-author/license)](http://opensource.org/licenses/MIT)
 [![POSIX](https://img.shields.io/badge/posix-100%25-brightgreen.svg)](https://en.wikipedia.org/?title=POSIX)
 [![Type](https://img.shields.io/badge/type-%2Fbin%2Fsh-red.svg)](https://en.wikipedia.org/?title=Bourne_shell)
