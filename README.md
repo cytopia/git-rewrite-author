@@ -18,6 +18,11 @@ Date:   Sat Oct 10 18:30:01 2015 +0200
 ...and now you see that your git author history is not very tidy anymore. Can this be changed? Of course :-)
 
 
+
+Read more details at **[everythingcli.org](http://www.everythingcli.org/git-like-a-pro-rewrite-author-history/)**
+
+
+
 ## 1. Features
 
 * List all current git authors and committers (name and email)
