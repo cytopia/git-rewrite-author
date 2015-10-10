@@ -7,7 +7,7 @@
 
 `git-rewrite-author` is a shell tool to manipulate the author and committer git history. You can use this tool to replace a specific git author/committer email with a different one.
 
-You have accidentally submitted something urgent on the server
+**For example:** You have accidentally committed and pushed something urgent from your production server...
 ```
 commit 70dbf556b735a7e1729f79b36502829415c037dd
 Author: Charly Root <root@localhost>
@@ -15,7 +15,7 @@ Date:   Sat Oct 10 18:30:01 2015 +0200
 
     Applied Security Fix
 ```
-and  want to change the author name?
+...and now you see that your git author history is not very tidy anymore. Can this be changed? Of course :-)
 
 
 ## Features
