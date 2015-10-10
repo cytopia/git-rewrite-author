@@ -1,0 +1,15 @@
+{
+	"name": "cytopia/git-rewrite-author",
+	"description": "Rewrite git author and committer history (locally and remotely).",
+	"type": "library",
+	"keywords": ["git", "git author", "git committer", "git history", "rewrite git history"],
+	"homepage": "https://github.com/cytopia/git-rewrite-author",
+	"license": "MIT",
+	"authors": [
+		{
+			"name" : "cytopia",
+			"homepage": "https://github.com/cytopia",
+			"role": "Developer"
+		}
+	]
+}

@@ -1,0 +1,131 @@
+#!/bin/sh
+# @Author:  cytopia <cytopia@everythingcli.org>
+# @Licence: MIT
+#
+# @Description:
+# Rewrite git author/committer history.
+name="git-rewrite-author"
+INFO_AUTHOR="cytopia <cytopia@everythingcli.org>"
+INFO_GPGKEY=""
+INFO_DATE="2015-10-10"
+INFO_LICENSE="MIT"
+INFO_VERSION="0.1-beta"
+
+#
+# Display program version and credits
+#
+version() {
+	printf "Version: %s (%s)\n" "${INFO_VERSION}" "${INFO_DATE}"
+	printf "Author:  %s (%s)\n" "${INFO_AUTHOR}" "${INFO_GPGKEY}"
+	printf "License: %s\n" "${INFO_LICENSE}"
+}
+
+
+#
+# Display help/usage
+#
+usage() {
+	echo "Usage: ${name} -l [--dry]"
+	echo "       ${name} -r <old_email> <new_email> <new_name> [--dry]"
+	echo "       ${name} -h"
+	echo "       ${name} -v"
+	echo
+	echo " -l       List current authors and committers in git"
+	echo " -r       Rewrite history from <old_email> to <new_email> and <new_name>"
+	echo " --dry    (optional) Do not do anything, just print the command."
+	echo " -v       Show version information."
+	echo " -h       Show this help screen."
+}
+
+
+push_note() {
+	command="git push --force --tags origin 'refs/heads/*'"
+
+	echo "In order to push the changed history to remote, issue the following command:"
+	echo "--------------------------------------------------------------------------------"
+	echo "$command"
+	echo "--------------------------------------------------------------------------------"
+}
+
+list() {
+	command="git log --pretty=full | grep  -E '(Author|Commit): (.*)$' | sed 's/Author: //g' | sed 's/Commit: //g' | sort -u"
+
+	if [ "$1" = "dry" ]; then
+		echo "$command"
+	else
+		eval "$command"
+	fi
+}
+
+
+rewrite() {
+	OLD_MAIL="${1}"
+	NEW_MAIL="${2}"
+	NEW_NAME="${3}"
+
+	command="$( printf "git filter-branch --env-filter '\n\tif [ \"\$GIT_COMMITTER_EMAIL\" = \"%s\" ]; then\n\t\texport GIT_COMMITTER_NAME=\"%s\"\n\t\texport GIT_COMMITTER_EMAIL=\"%s\"\n\tfi\n\tif [ \"\$GIT_AUTHOR_EMAIL\" = \"%s\" ]; then\n\t\texport GIT_AUTHOR_NAME=\"%s\"\n\t\texport GIT_AUTHOR_EMAIL=\"%s\"\n\tfi\n' --tag-name-filter cat -f -- --all" "${OLD_MAIL}" "${NEW_NAME}" "${NEW_MAIL}" "${OLD_MAIL}" "${NEW_NAME}" "${NEW_MAIL}" )"
+
+	if [ "$4" = "dry" ]; then
+		echo
+		echo "How to rewrite git history:"
+		echo "--------------------------------------------------------------------------------"
+		echo "$command"
+		echo "--------------------------------------------------------------------------------"
+	else
+		eval "$command"
+	fi
+
+	echo
+	push_note
+}
+
+
+
+if [ $# -ne 1 ] && [ $# -ne 2 ] && [ $# -ne 4 ] &&  [ $# -ne 5 ]; then
+	usage
+	exit 1
+fi
+
+if [ $# -eq 1 ] && [ "$1" = "-v" ]; then
+	version
+	exit 0
+elif [ $# -eq 1 ] && [ "$1" = "-h" ]; then
+	usage
+	exit 0
+elif [ "$1" = "-l" ]; then
+
+	if [ $# -eq 1 ]; then
+		list
+		exit 0
+	elif [ $# -eq 2 ] && [ "$2" = "--dry" ]; then
+		list "dry"
+		exit 0
+	else
+		usage
+		exit 1
+	fi
+
+elif [ "$1" = "-r" ] && [ $# -gt 3 ]; then
+
+	OLD_MAIL="${2}"
+	NEW_MAIL="${3}"
+	NEW_NAME="${4}"
+
+	if [ $# -eq 4 ]; then
+		rewrite "$2" "$3" "$4"
+		exit 0
+	elif [ $# -eq 5 ] && [ "$5" = "--dry" ]; then
+		rewrite "$2" "$3" "$4" "dry"
+		exit 0
+	else
+		usage
+		exit 1
+	fi
+
+else
+
+	usage
+	exit 1
+
+fi
+
