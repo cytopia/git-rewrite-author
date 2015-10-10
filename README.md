@@ -15,7 +15,7 @@ Date:   Sat Oct 10 18:30:01 2015 +0200
 
     Applied Security Fix
 ```
- and  want to change the author name?
+and  want to change the author name?
 
 
 ## Features
