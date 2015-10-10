@@ -7,7 +7,7 @@
 
 `git-rewrite-author` is a shell tool to manipulate the author and committer git history. You can use this tool to replace a specific git author/committer email with a different one.
 
-You have accidentally submitted something urgent on the server
+**For example:** You have accidentally committed and pushed something urgent from your production server...
 ```
 commit 70dbf556b735a7e1729f79b36502829415c037dd
 Author: Charly Root <root@localhost>
@@ -15,19 +15,19 @@ Date:   Sat Oct 10 18:30:01 2015 +0200
 
     Applied Security Fix
 ```
-and  want to change the author name?
+...and now you see that your git author history is not very tidy anymore. Can this be changed? Of course :-)
 
 
-## Features
+## 1. Features
 
 * List all current git authors and committers (name and email)
 * Search author/committer by email and replace with different name and email
 * Show how all commands work (`--dry` option)
 
 
-## Usage
+## 2. Usage
 
-### All options
+### 2.1 All options
 
 ```shell
 Usage: git-rewrite-author -l [--dry]
@@ -42,14 +42,14 @@ Usage: git-rewrite-author -l [--dry]
  -h       Show this help screen.
 ```
 
-### List all authors
+### 2.2 List all authors
 
 ```shell
 $ git-rewrite-author -l
 cytopia <cytopia@everythingcli.org>
 ```
 
-### Replace author
+### 2.3 Replace author
 
 ```shell
 # Rewrite hisstory
@@ -60,11 +60,27 @@ $ git-rewrite-author -l
 Cool Name <better@email.com>
 ```
 
-##  Contribution
+## 3. Installation
+
+You can download `git-rewrite-author` via git or composer:
+```shell
+# git
+git clone -https://github.com/cytopia/git-rewrite-author.git
+
+# composer
+composer require cytopia/git-rewrite-author
+```
+
+Afterwards just execute the `install.sh`, it will simply symlink the file to your home binary directory. So whenever you update the git repository afterwards, the symlink will always point to that version.
+```shell
+$ ./install.sh
+Symlink git-rewrite-author to ~/bin? (Y/n)y
+```
+
+
+##  4. Contribution
 Contributors are welcome.
 
 
-##  License
+##  5. License
 [![license](https://poser.pugx.org/cytopia/git-rewrite-author/license)](http://opensource.org/licenses/mit)
-
-
